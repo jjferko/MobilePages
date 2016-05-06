@@ -1,0 +1,153 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Help Page - eO Mobile Ticketing</title>
+    <meta charset="utf-8" />
+    <style type="text/css">
+        hr {
+            margin: 0 !important;
+        }
+
+        ul {
+            list-style-type: none;
+        }
+
+            ul:first-child {
+                padding: 0 40px;
+            }
+
+                ul:first-child > li {
+                    font-weight: bold;
+                    padding: 15px 0;
+                    cursor: pointer;
+                }
+
+            ul li span.glyphicon {
+                display: inline;
+                margin-right: 10px;
+                color: cornflowerblue;
+            }
+
+            ul ul li {
+                padding-bottom: 5px;
+                cursor: pointer;
+            }
+
+            ul ul p {
+                margin-left: 25px;
+            }
+
+        p {
+            text-align: justify;
+        }
+    </style>
+</head>
+<body>
+    <div class="container-fluid">
+        <ul id="accordion1">
+            <li>FAQ</li>
+            <ul>
+                <li>How do I purchase a ticket</li>
+                <li>Can I purchase tickets without registering</li>
+                <li>What if I have lost my phone</li>
+                <li>Why are some tickets active when I buy them and others are inactive</li>
+            </ul>
+
+            <hr />
+
+            <li>General</li>
+            <ul>
+                <li>Registering with the service</li>
+                <li>Log in and out</li>
+            </ul>
+
+            <hr />
+
+            <li>Payment Methods</li>
+            <ul>
+                <li>Register a payment method</li>
+                <li>Delete a payment method</li>
+            </ul>
+
+            <hr />
+
+            <li>Purchasing Tickets</li>
+            <ul>
+                <li>How to purchase a ticket</li>
+                <li>Information about tickets</li>
+            </ul>
+
+            <hr />
+
+            <li>Ticket Wallet</li>
+            <ul>
+                <li>Inactive tickets</li>
+                <li>Active tickets</li>
+                <li>Expired tickets</li>
+            </ul>
+
+            <hr />
+
+            <li>Account Services</li>
+            <ul>
+                <li>Security</li>
+                <li>Changing passwords</li>
+                <li>Transfer account to new device</li>
+                <li>Deleting my account</li>
+            </ul>
+        </ul>
+    </div>
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+    <!-- Latest compiled JavaScript -->
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <!-- Custom functions -->
+    <script>
+        $(document).ready(function () {
+
+            var htmlString1 = '<span class="glyphicon glyphicon-th-list"></span>';
+            $('ul:first > li').prepend(htmlString1);
+
+            var loremIpsum = "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus sed tellus at risus rutrum semper tincidunt vitae nulla. In hac habitasse platea dictumst. Aliquam pharetra, tellus et gravida vestibulum, ante ante commodo dui, et lobortis risus eros a felis. Duis pretium venenatis nisi, eget dictum sapien vehicula eu. Sed vulputate metus ligula, eget efficitur velit consequat id. Nunc eu facilisis tellus, vel dignissim urna. Nulla eleifend a risus at luctus.</p>";
+            $(loremIpsum).insertAfter('ul ul li');
+
+            var htmlString2 = '<span class="glyphicon glyphicon-minus"></span>';
+            $('ul ul > li').prepend(htmlString2);
+
+            var number;
+
+            number = 1;
+            $('ul:first > li').each(function () {
+                $(this).attr("data-toggle", "collapse");
+                $(this).attr("href", "#" + number++);
+                $(this).attr("data-parent", "#accordion1");
+
+            });
+
+            number = 1;
+            $('ul > ul').each(function () {
+                $(this).attr("id", number++);
+                $(this).addClass("collapse");
+            });
+
+            number = 11;
+            $('ul ul > li').each(function () {
+                $(this).attr("data-toggle", "collapse");
+                $(this).attr("data-target", "#" + number++);
+            });
+
+            number = 11;
+            $('ul ul p').each(function () {
+                $(this).attr("id", number++);
+                $(this).addClass("collapse");
+            });
+
+            //$('ul:first').attr("id", "accordion1");
+
+        });
+    </script>
+</body>
+</html>
